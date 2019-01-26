@@ -14,4 +14,8 @@ export class ClientService {
   _getClients() {
     return this.clientCollection.valueChanges();
   }
+
+  _persistClient(data) {
+    return this.clientCollection.add(data);
+  }
 }
