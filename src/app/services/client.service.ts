@@ -30,4 +30,8 @@ export class ClientService {
   _deleteClient(id) {
     return this.clientCollection.doc(id).delete();
   }
+
+  setStatus(data, id) {
+    return this.clientCollection.doc(id).update(data);
+  }
 }

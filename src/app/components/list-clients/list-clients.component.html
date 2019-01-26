@@ -24,7 +24,14 @@
          <tr *ngFor="let client of clients"
          (dblclick)="deleteClient(client.id)"
          >
-           <td>{{ client.firstName }} {{ client.lastName }}</td>
+           <td>
+            <button class="btn btn-sm" [ngClass]="{
+              'btn-success': client.active,
+              'btn-danger': !client.active
+            }" (click)="toggleStatus(client)">
+              <i class="fa fa-power-off"></i>
+            </button> 
+            {{ client.firstName }} {{ client.lastName }}</td>
            <td>{{ client.telephone }}</td>
            <td>{{ client.email }}</td>
            <td>{{ client.balance }}</td>

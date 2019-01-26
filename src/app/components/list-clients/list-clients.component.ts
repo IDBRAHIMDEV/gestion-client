@@ -31,4 +31,12 @@ export class ListClientsComponent implements OnInit {
         .catch((err) => console.error(err))
   }
 
+  toggleStatus(client) {
+    
+    this.clientService.setStatus({
+      active: !client.active
+    }, client.id).then((res) => console.log(res))
+                 .catch((err) => console.error(err))
+  }
+
 }
