@@ -31,11 +31,15 @@
             }" (click)="toggleStatus(client)">
               <i class="fa fa-power-off"></i>
             </button> 
-            {{ client.firstName }} {{ client.lastName }}</td>
+            {{ client.firstName | titlecase }} {{ client.lastName | lowercase }}</td>
            <td>{{ client.telephone }}</td>
            <td>{{ client.email }}</td>
-           <td>{{ client.balance }}</td>
+           <td>{{ client.balance | currency }}</td>
            <td class="text-right">
+             <a [routerLink]="['/edit', client.id]" class="btn btn-sm btn-info">
+               <i class="fa fa-pencil"></i>
+             </a>
+
              <button class="btn btn-sm btn-warning"
               (click)="deleteClient(client.id)">
                <i class="fa fa-trash"></i>

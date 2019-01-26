@@ -1,3 +1,4 @@
+import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ListClientsComponent } from './components/list-clients/list-clients.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { AddClientComponent } from './components/add-client/add-client.component
 const routes: Routes = [
   { path: "", component: ListClientsComponent },
   { path: "add", component: AddClientComponent },
+  { path: "edit/:idclient", component: EditClientComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 

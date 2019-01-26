@@ -34,4 +34,12 @@ export class ClientService {
   setStatus(data, id) {
     return this.clientCollection.doc(id).update(data);
   }
+
+  _getClient(id) {
+    return this.clientCollection.doc(id).valueChanges();
+  }
+
+  _updateClient(client) {
+   return this.clientCollection.doc(client.id).update(client);
+  }
 }
