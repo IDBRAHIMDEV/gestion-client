@@ -11,7 +11,7 @@ export class AuthService {
   _register(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
-
+  
   _login(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
