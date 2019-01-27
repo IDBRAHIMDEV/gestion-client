@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -10,9 +11,9 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "", component: ListClientsComponent },
-  { path: "add", component: AddClientComponent },
-  { path: "edit/:idclient", component: EditClientComponent },
+  { path: "", component: ListClientsComponent, canActivate: [AuthGuard] },
+  { path: "add", component: AddClientComponent, canActivate: [AuthGuard] },
+  { path: "edit/:idclient", component: EditClientComponent, canActivate: [AuthGuard] },
   { path: "**", component: PageNotFoundComponent }
 ];
 
