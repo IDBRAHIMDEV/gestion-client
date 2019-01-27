@@ -11,6 +11,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class AddClientComponent implements OnInit {
   
+  reload = false;
   task: AngularFireUploadTask;
   selectedImage = null;
   previewFile = null;
@@ -25,7 +26,7 @@ export class AddClientComponent implements OnInit {
 
   addClient(form) {
     if(form.valid) {
-      
+      this.reload = true
       const image = this.selectedImage;
       const myFile = 'depots/clients/'+image.name;
       

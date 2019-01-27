@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 })
 export class ListClientsComponent implements OnInit {
   
+  total = 0;
   search = "";
   searchClients: Client[] = [];
   clients: Client[] = [];
@@ -23,7 +24,7 @@ export class ListClientsComponent implements OnInit {
     this.clientService._getClients()
         .subscribe((res: Client[]) => {
            this.searchClients = this.clients = res
-           console.log(res);
+           this.calculTotal(); 
         })
   }
 
@@ -43,6 +44,13 @@ export class ListClientsComponent implements OnInit {
       active: !client.active
     }, client.id).then((res) => console.log(res))
                  .catch((err) => console.error(err))
+  }
+
+
+  calculTotal() {
+   this.total =  _.reduce(this.searchClients, (sum, client) => {
+      return sum + client.balance
+    }, 0);
   }
 
 }

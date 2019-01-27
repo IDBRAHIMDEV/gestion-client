@@ -43,7 +43,11 @@
       <input [ngClass]="{'is-invalid': balance.touched && balance.invalid}" ngModel #balance="ngModel" required name="balance" id="balance" type="number" class="form-control">
     </div>
 
-    <button class="btn btn-primary btn-block"><i class="fa fa-send"></i> New Client</button>
+    <button class="btn btn-primary btn-block" [disabled]="reload">
+      <span *ngIf="reload"> <i class="fa fa-spinner fa-spin"></i>   </span>
+      <span *ngIf="!reload"><i class="fa fa-send"></i> New Client</span>
+      
+    </button>
   </form>
   </div>
 </div>
