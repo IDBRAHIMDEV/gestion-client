@@ -16,6 +16,7 @@
      <table class="table table-striped">
        <thead>
          <tr>
+           <th>Image</th>
            <th>Fullname</th>
            <th>Telephone</th>
            <th>Email</th>
@@ -27,6 +28,9 @@
          <tr *ngFor="let client of searchClients"
          (dblclick)="deleteClient(client.id)"
          >
+           <td>
+             <img height="100" [src]="client?.image" [alt]="client.email">
+           </td>
            <td>
             <button class="btn btn-sm" [ngClass]="{
               'btn-success': client.active,

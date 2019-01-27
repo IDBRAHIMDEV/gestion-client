@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     AngularFirestoreModule,
     FormsModule,
     AngularFireAuthModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
